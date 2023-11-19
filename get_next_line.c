@@ -6,7 +6,7 @@
 /*   By: uahmed <uahmed@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:17:23 by uahmed            #+#    #+#             */
-/*   Updated: 2023/11/16 16:32:46 by uahmed           ###   ########.fr       */
+/*   Updated: 2023/11/19 13:02:19 by uahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (read(fd, 0, 0) < 0)
+	{
+		ft_freebuff(lines);
+		return (NULL);
+	}
 	line = NULL;
 	bytes = 1;
 	while (bytes > 0)
