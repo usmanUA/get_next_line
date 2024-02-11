@@ -6,7 +6,7 @@
 /*   By: uahmed <uahmed@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:16:46 by uahmed            #+#    #+#             */
-/*   Updated: 2023/11/16 15:00:05 by uahmed           ###   ########.fr       */
+/*   Updated: 2024/02/11 16:24:52 by uahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ char	    *ft_writeline(char *lines, char *line);
 size_t		ft_newline(char *s);
 void 	    ft_freebuff(char *lines);
 int         ft_movebuff(char *lines);
+int 		ft_errorcheck(int fd, char *lines);
 char	    *get_next_line(int fd);
 #endif
