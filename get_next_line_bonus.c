@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uahmed <uahmed@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:17:23 by uahmed            #+#    #+#             */
-/*   Updated: 2023/11/19 14:35:16 by uahmed           ###   ########.fr       */
+/*   Updated: 2024/02/11 16:47:29 by uahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,25 +48,25 @@ int	ft_movebuff(char *lines)
 	return (0);
 }
 
-char	*ft_errorcheck(int fd, int bsize, char *lines)
+int	ft_errorcheck(int fd, char *lines)
 {
-	if (fd < 0 || bsize <= 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
 	if (read(fd, 0, 0) < 0)
 	{
 		ft_freebuff(lines);
-		return (NULL);
+		return (0);
 	}
-	return ("NO ERROR");
+	return (1);
 }
 
 char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	lines[FDS + 1][BUFFER_SIZE + 1];
-	int		bytes;
+	int			bytes;
 
-	if (!ft_errorcheck(fd, BUFFER_SIZE, lines[fd]))
+	if (!ft_errorcheck(fd, lines[fd]))
 		return (NULL);
 	line = NULL;
 	bytes = 1;

@@ -64,7 +64,7 @@ char	*get_next_line(int fd)
 {
 	char		*line;
 	static char	lines[BUFFER_SIZE + 1];
-	int		bytes;
+	int			bytes;
 
 	if (!ft_errorcheck(fd, lines))
 		return (NULL);

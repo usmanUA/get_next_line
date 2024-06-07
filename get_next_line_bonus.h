@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uahmed <uahmed@student.hive.fi>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 18:16:46 by uahmed            #+#    #+#             */
-/*   Updated: 2023/11/16 15:00:05 by uahmed           ###   ########.fr       */
+/*   Updated: 2024/02/11 16:48:15 by uahmed           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef GET_NEXT_LINE_BONUS_H
+# define GET_NEXT_LINE_BONUS_H
 
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-#include <stdio.h>
 
 # ifndef FDS
 #  define FDS 256
@@ -25,11 +25,13 @@
 #  define BUFFER_SIZE 42
 # endif
 
-void	    ft_free(char *s);
-size_t	    ft_strlen(char *s);
-char	    *ft_writeline(char *lines, char *line);
-size_t		ft_newline(char *s);
-void 	    ft_freebuff(char *lines);
-int         ft_movebuff(char *lines);
-char	    *get_next_line(int fd);
+void	ft_free(char *s);
+size_t	ft_strlen(char *s);
+void	ft_copylines(char **new_line, char *line, char *lines);
+char	*ft_writeline(char *lines, char *line);
+size_t	ft_newline(char *s);
+void	ft_freebuff(char *lines);
+int		ft_movebuff(char *lines);
+int		ft_errorcheck(int fd, char *lines);
+char	*get_next_line(int fd);
 #endif
